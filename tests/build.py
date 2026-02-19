@@ -1,5 +1,6 @@
-from build.ab import normalrule, Rule, Target, export
+from build.ab import simplerule, Rule, Target, export
 from config import TEST_BINARY
+from glob import glob
 
 TESTS = [
     "apply-markup",
@@ -18,6 +19,7 @@ TESTS = [
     "filesystem",
     "find-and-replace",
     "get-style-from-word",
+    "heading-styles",
     "immutable-paragraphs",
     "import-from-html",
     "import-from-markdown",
@@ -56,6 +58,8 @@ TESTS = [
     "weirdness-combining-words",
     "weirdness-delete-word",
     "weirdness-deletion-with-multiple-spaces",
+    "weirdness-document-rename",
+    "weirdness-documentset-default-name",
     "weirdness-end-of-lines",
     "weirdness-forward-delete",
     "weirdness-globals-applied-on-startup",
@@ -69,6 +73,7 @@ TESTS = [
     "weirdness-styling-unicode",
     "weirdness-upgrade-0.6-with-clipboard",
     "weirdness-word-left-from-end-of-line",
+    "weirdness-word-left-on-first-word-in-doc",
     "weirdness-word-right-to-last-word-in-doc",
     "windows-installdir",
     "word",
@@ -78,12 +83,13 @@ TESTS = [
 
 @Rule
 def test(self, name, exe: Target = None):
-    normalrule(
+    simplerule(
         replaces=self,
         ins=["./" + self.localname + ".lua", exe],
-        outs=["log"],
+        outs=["=log"],
+        deps=["./testsuite.lua"] + glob("testdocs/*"),
         commands=[
-            "{ins[1]} --lua {ins[0]} >{outs} 2>&1 || (cat {outs} && rm -f {outs} && false)"
+            "$[ins[1]] --lua $[ins[0]] >$[outs] 2>&1 || (cat $[outs] && rm -f $[outs] && false)"
         ],
         label="TEST",
     )

@@ -1,4 +1,12 @@
-export BUILDTYPE ?= unix
+ifeq ($(BUILDTYPE),)
+    buildtype_Darwin = osx
+    buildtype_Haiku = haiku
+    BUILDTYPE := $(buildtype_$(shell uname -s ))
+	ifeq ($(BUILDTYPE),)
+		BUILDTYPE := unix
+	endif
+endif
+export BUILDTYPE
 
 ifeq ($(BUILDTYPE),windows)
 	MINGW = i686-w64-mingw32-
@@ -19,8 +27,12 @@ ifeq ($(BUILDTYPE),windows)
 	MAKENSIS = makensis
 	EXT = .exe
 else
+	ifeq ($(BUILDTYPE),osx)
+		export BREW := $(shell brew --prefix)/opt
+	endif
+
 	export CC = gcc
-	export CXX = g++
+	export CXX = g++ -std=c++20
 	export CFLAGS
 	export CXXFLAGS
 	export LDFLAGS
