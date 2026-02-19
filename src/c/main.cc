@@ -13,6 +13,7 @@
 
 #if !defined WIN32
 #include <langinfo.h>
+#include <strings.h>
 #endif
 
 bool enable_unicode;
@@ -41,8 +42,14 @@ int main(int argc, char* argv[])
     setlocale(LC_ALL, "C");
     enable_unicode = true;
 #else
-    setlocale(LC_ALL, "C.UTF-8");
-    enable_unicode = strcmp(nl_langinfo(CODESET), "UTF-8") == 0;
+    if (!setlocale(LC_ALL, "C.UTF-8"))
+        if (!setlocale(LC_ALL, "en_US.UTF-8"))
+            if (!setlocale(LC_ALL, "en_GB.UTF-8"))
+                setlocale(LC_ALL, "");
+
+    const char* codeset = nl_langinfo(CODESET);
+    enable_unicode = (strcasecmp(codeset, "UTF-8") == 0) ||
+                     (strcasecmp(codeset, "UTF8") == 0);
 #endif
 
     script_init();

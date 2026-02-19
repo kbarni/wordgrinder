@@ -293,7 +293,11 @@ uni_t dpy_getchar(double timeout)
         if (c == KEY_MOUSE)
             return -handle_mouse();
 
-        if ((r == KEY_CODE_YES) || !iswprint(c)) /* function key */
+        bool printable = iswprint(c);
+        if (!printable && (c >= 32) && (c != 127))
+            printable = true;
+
+        if ((r == KEY_CODE_YES) || !printable) /* function key */
             return -c;
 
         if (emu_wcwidth(c) > 0)

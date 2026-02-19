@@ -36,25 +36,19 @@
 
 #if defined(__APPLE__) && defined(__MACH__)
 #define OSX
-#define EMULATED_WCWIDTH
 #endif
 
 #if defined _WIN32
 #undef WIN32
 #define WIN32
-#define EMULATED_WCWIDTH
 #endif
 
 /* --- Emulation issues -------------------------------------------------- */
 
 typedef int uni_t;
 
-#if defined EMULATED_WCWIDTH
+#define EMULATED_WCWIDTH
 extern int emu_wcwidth(uni_t c);
-#else
-#include <wchar.h>
-#define emu_wcwidth(c) wcwidth(c)
-#endif
 
 extern int main(int argc, char* argv[]);
 

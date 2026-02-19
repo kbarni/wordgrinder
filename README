@@ -1,10 +1,10 @@
                                WORDGRINDER V0.9
                                ================
 
-                           © 2007-2025 David Given
-                                 2025-01-22
+                           © 2007-2026 David Given
+                                 2026-02-22
 
-                                Unix version
+                                Kindle version
 
 
 INTRODUCTION
@@ -18,89 +18,64 @@ It supports basic paragraph styles, basic character styles, basic screen
 markup, a menu interface that means you don't have to remember complex
 key sequences, HTML import and export, and some other useful features.
 
-WordGrinder does not require a GUI. It can run in a terminal. (But there are GUI
-versions for Unixishes, Windows and OSX if you want them.)
+WordGrinder does not require a GUI. It can run in a terminal. It helps to
+run without distractions and with a higher refresh rate on the eink 
+display.
 
 
 
 INSTALLATION
 ============
 
-WordGrinder needs the following packages installed:
+To run **Wordgrinder** on a *Kindle*, you need to **jailbreak your device**.
+See [Kindlemodding](https://www.kindlemodding.org) how to do it.
 
- - ninja, the build tool. This is available from:
-     https://ninja-build.org/
+You also need to install [kindle-hid-passthrough](https://github.com/kbarni/kindle-hid-passthrough/) 
+to be able to connect Bluetooth keyboard. It is a must for a productive
+typing.
 
- - ncursesw, the wide-character version of curses. This is supplied with
-   most systems.
+Another prerequisite is the [kterm](https://github.com/bfabiszewski/kterm) terminal emulator.
 
- - an OpenGL/GLFW development kit (if you want the OpenGL frontend).  This is
-   supplied with most systems.
+Download the latest Wordgrinder release and unzip it to the root folder of 
+your Kindle.
 
- - zlib. You will already have this, but just on the offchance, it's here:
-     http://www.zlib.net/
+You can start it from the main screen using the provided booklet.
 
- - a terminal emulator that supports UTF-8. gnome-terminal, konsole, xterm
-   and rxvt-unicode do. rxvt and the Linux console don't (unless you use
-   jfbterm). You will also need a decent set of Unicode fonts or WordGrinder
-   will look funny.
 
-Chances are you already have these in your distribution. Merely install these
-packages:
+Building
+========
 
-  If you have Debian/Ubuntu:
-    libncursesw5-dev zlib1g-dev libglfw3-dev
+To cross-compile Wordgrinder for Kindle, you need to setup a cross-compile
+toolchain. Follow [this wiki](https://kindlemodding.org/kindle-dev/gtk-tutorial/prerequisites.html)
+to set up the toolchain.
 
-  If you have Fedora:
-	zlib-devel libglfw-devel ncurses ncurses-devel
+You might also need to build the *ncurses* library for this toolchain, if
+it's not included.
 
-  If you have OSX with Homebrew:
-    pkg-config glfw
+Then run:
 
-  If you have Haiku:
-    pkgman install make glfw_devel pkgconfig zlib_devel ncurses6_devel gcc pillow_python310
+```
+TOOLCHAIN_PATH=[path/to/your/toolchai] ./build.sh
+```
 
-To detect a sensible configuration and build, simply do:
-
-    make
-
-To install into your home directory, do:
-
-    sudo make install
-
-If you want to install somewhere else, do:
-
-	PREFIX=/usr/local ./configure
-	make install
-
-(Change PREFIX to whatever you like; naturally, if you're not installing in a
-global location, you don't need sudo.)
-
-(There are various other poorly-documented configuration options in the
-configure script.)
-
-It is now ready to use.
-
-Special note for compilation on Windows: do 'make' from MSYS2 with the Mingw64
-toolchain and nsis installed.  use Cygwin. You'll end up with the installer
-package in bin/.
-
+The sources and the build system were modified for Kindle compatibility. The
+GUI (OpenGL) related parts were removed and it is set up to use the toolchain.
 
 
 USAGE
 =====
 
-Do this:
+On **Kindle** launch Wordgrinder from the main screen using the provided booklet.
 
-    wordgrinder
+You can directly start writing.
 
-...to get a blank document. You can load an existing document with:
+Press ESC to access the menu or directly the keyboard shortcut (e.g. *^P* for
+paragraph styles). Press *^Q* to close Wordgrinder.
 
-    wordgrinder README.wg
+If you are stuck, you can invoke the on-screen keyboard by two-finger tap on
+the screen.
 
-Please read README.wg; it contains the manual. There is also a man page,
-which describes the command line interface.
-
+Please read `README.wg`; it contains the manual.
 
 If you use WordGrinder, please join the mailing list. This will allow you
 to ask questions, hopefully receive answers, and get news about any

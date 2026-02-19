@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="160"
+   viewBox="0 -960 2400 3200"
+   width="120"
+   fill="#0"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="edit_document_256dp_0_FILL0_wght400_GRAD0_opsz48.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   inkscape:export-filename="edit_document_256dp_0_FILL0_wght400_GRAD0_opsz48.png"
+   inkscape:export-xdpi="288"
+   inkscape:export-ydpi="288"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.1497314"
+     inkscape:cx="80.009997"
+     inkscape:cy="93.500055"
+     inkscape:window-width="1880"
+     inkscape:window-height="1052"
+     inkscape:window-x="40"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="m 1400.5803,1263.2112 v -249.5687 l 448.4121,-446.38312 q 18.2611,-18.26112 40.5803,-26.37718 22.3191,-8.11605 44.6383,-8.11605 24.3481,0 46.6673,9.13056 22.3191,9.13056 40.5803,27.39169 l 75.0735,75.07351 q 18.2611,18.26113 26.3772,40.58028 8.116,22.31916 8.116,44.63831 0,22.31915 -9.1305,45.65282 -9.1306,23.33366 -27.2091,41.59478 l -444.5367,446.3831 z m 608.7042,-533.6307 -75.0735,-75.07352 z m -486.9634,411.8898 h 77.1026 l 245.5106,-247.53967 -36.5222,-38.55126 -38.5513,-36.52225 -247.5397,245.51068 z m -811.60556,121.7409 q -48.69634,0 -85.21859,-36.5223 -36.52225,-36.5222 -36.52225,-85.2186 V -238.25916 q 0,-48.69634 36.52225,-85.21859 Q 662.0192,-360 710.71554,-360 h 689.86476 l 486.9633,486.96335 V 362.32897 H 1765.8028 V 208.12391 H 1319.4197 V -238.25916 H 710.71554 V 1141.4703 h 568.12396 v 121.7409 z M 1299.1296,451.60559 Z m 509.2825,403.77378 -38.5513,-36.52225 75.0735,75.07351 z"
+     id="path2"
+     style="fill:#000000;fill-opacity:1;stroke-width:2.02901" />
+  <text
+     xml:space="preserve"
+     style="font-size:1082.14px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:40.5803"
+     x="1184.3087"
+     y="928.92078"
+     id="text845"><tspan
+       sodipodi:role="line"
+       id="tspan843"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1082.14px;font-family:'EB Garamond SC';-inkscape-font-specification:'EB Garamond SC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:40.5803"
+       x="1184.3087"
+       y="928.92078">W</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:320px;line-height:0.65;font-family:'EB Garamond SC';-inkscape-font-specification:'EB Garamond SC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;stroke-width:20"
+     x="1252.1564"
+     y="1748.0886"
+     id="text953"><tspan
+       sodipodi:role="line"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:320px;font-family:'EB Garamond SC';-inkscape-font-specification:'EB Garamond SC, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:20"
+       x="1252.1564"
+       y="1748.0886"
+       id="tspan959">Wordgrinder</tspan></text>
+</svg>
