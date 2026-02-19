@@ -10,9 +10,10 @@
 INTRODUCTION
 ============
 
-WordGrinder is a simple, Unicode-aware word processor that runs on the
-console. It's designed to get the hell out of your way and let you write;
-it does very little, but what it does it does well.
+WordGrinder the writers' tool on Kindle. It is simple, minimalist, 
+Unicode-aware word processor that runs on the console. It's designed to 
+get the hell out of your way and let you write; it does very little, but 
+what it does it does well.
 
 It supports basic paragraph styles, basic character styles, basic screen
 markup, a menu interface that means you don't have to remember complex
@@ -23,6 +24,21 @@ run without distractions and with a higher refresh rate on the eink
 display.
 
 
+
+FEATURES
+========
+
+- Ultra-clean, uncluttered display.
+- Multi-part document support
+- Intuitive, friendly menu system and fast-access keyboard shortcuts. The 
+keyboard shortcuts are all configurable from within WordGrinder.
+- Configuration settings get saved automatically in your document.
+- Just enough character and paragraph style support to let you get the job
+done, while not enough to let you waste time configuring them
+- Undo and redo
+- Export to Markdown, Latex, Troff, HTML and ODF
+- Import from Markdow, HTML and ODF
+- Lightweight, fast and efficient codebase
 
 INSTALLATION
 ============
