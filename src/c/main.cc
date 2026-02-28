@@ -51,7 +51,9 @@ int main(int argc, char* argv[])
     enable_unicode = (strcasecmp(codeset, "UTF-8") == 0) ||
                      (strcasecmp(codeset, "UTF8") == 0);
 #endif
-
+#if defined KINDLE
+    setenv("HOME","/mnt/us/",1);
+#endif
     script_init();
     screen_init((const char**)argv);
     word_init();
