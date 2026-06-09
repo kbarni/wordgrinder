@@ -60,3 +60,38 @@ normal text again
 local output = Cmd.ExportToMarkdownString()
 AssertEquals(expected, output)
 
+-- Regression test for issue #316: plain text that looks like a Markdown block
+-- marker must round-trip through .md export and import unchanged. Without
+-- escaping, cmark re-reads "---" as a thematic break (and the paragraph
+-- vanishes entirely), "1." as an ordered-list item, and "+" as a bullet.
+
+ResetDocumentSet()
+Cmd.InsertStringIntoParagraph("Chapter ends here.")
+Cmd.SplitCurrentParagraph()
+Cmd.InsertStringIntoParagraph("---")
+Cmd.SplitCurrentParagraph()
+Cmd.InsertStringIntoParagraph("New scene begins.")
+Cmd.SplitCurrentParagraph()
+Cmd.InsertStringIntoParagraph("1. First reason")
+Cmd.SplitCurrentParagraph()
+Cmd.InsertStringIntoParagraph("+ plus bullet")
+Cmd.ChangeParagraphStyle("P")
+local original_text = Cmd.ExportToTextString()
+
+-- The block markers must be escaped in the exported markdown.
+local roundtrip = Cmd.ExportToMarkdownString()
+AssertEquals(true, roundtrip:find("\\---", 1, true) ~= nil)
+AssertEquals(true, roundtrip:find("1\\.", 1, true) ~= nil)
+AssertEquals(true, roundtrip:find("\\+", 1, true) ~= nil)
+
+-- And re-importing the export must reproduce the original plain text, with the
+-- "---" paragraph still present and the list-like lines still ordinary
+-- paragraphs.
+-- (cmark always prepends an empty leading paragraph on import, so compare
+-- against the original text with a matching leading blank line.)
+local reimported = Cmd.ImportMarkdownString(roundtrip)
+documentSet:addDocument(reimported, "reimported")
+documentSet:setCurrent("reimported")
+local roundtripped_text = Cmd.ExportToTextString()
+AssertEquals("\n" .. original_text, roundtripped_text)
+

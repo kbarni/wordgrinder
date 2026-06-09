@@ -8,6 +8,12 @@ local function unmarkdown(s)
 	s = s:gsub("`", "\\`")
 	s = s:gsub("_", "\\_")
 	s = s:gsub("*", "\\*")
+
+	-- Neutralise block markers so plain text round-trips (otherwise cmark
+	-- re-reads them as a thematic break / list and we lose or mangle text).
+	s = s:gsub("^(%d+)([.)])$", "%1\\%2")  -- ordered-list marker: "1." -> "1\."
+	s = s:gsub("^([-=]+)$", "\\%1")        -- "---"/"===" thematic-break/setext -> "\---"
+	s = s:gsub("^%+$", "\\+")              -- "+" bullet -> "\+"
 	return s
 end
 
