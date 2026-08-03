@@ -171,6 +171,7 @@ extern void dpy_writechar(int x, int y, uni_t c);
 extern void dpy_setcursor(int x, int y, bool shown);
 extern void dpy_clearscreen(void);
 extern void dpy_sync(void);
+extern void dpy_forceredraw(void);
 extern void dpy_cleararea(int x1, int y1, int x2, int y2);
 extern void dpy_getscreensize(int* x, int* y);
 extern uni_t dpy_getchar(double timeout);

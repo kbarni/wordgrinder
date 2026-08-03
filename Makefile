@@ -42,7 +42,7 @@ endif
 
 CFLAGS += -g -Os -ffunction-sections -fdata-sections
 CXXFLAGS = $(CFLAGS) --std=c++17
-LDFLAGS += -ffunction-sections -fdata-sections
+LDFLAGS += -ffunction-sections -fdata-sections -lrt
 
 export PREFIX = /usr/local
 

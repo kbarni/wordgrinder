@@ -1166,6 +1166,16 @@ function Cmd.ToggleStatusBar()
 	return true
 end
 
+function Cmd.ForceRedraw()
+	-- Recompute the screen size and rewrap, in case the terminal changed size
+	-- without us noticing, then repaint every cell from scratch.
+
+	ResizeScreen()
+	RedrawScreen()
+	wg.forceredraw()
+	return true
+end
+
 function Cmd.AboutWordGrinder()
 	AboutDialogue()
 end

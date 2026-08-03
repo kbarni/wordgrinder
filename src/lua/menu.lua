@@ -249,6 +249,8 @@ local EditMenu = CreateMenu("Edit",
 	E("EG",         "G", "Go to...",                  "^G",        Cmd.Goto),
 	M("Escrapbook", "S", "Scrapbook >",               nil,         ScrapbookMenu),
 	M("Espell",     "K", "Spellchecker >",            nil,         SpellcheckMenu),
+	separator,
+	E("SR",         "H", "Redraw screen",             "^T",        Cmd.ForceRedraw),
 })
 
 local MarginMenu = CreateMenu("Margin",

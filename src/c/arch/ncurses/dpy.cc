@@ -106,6 +106,16 @@ void dpy_sync(void)
     refresh();
 }
 
+/* Throws away curses' idea of what's on the physical screen, so that the next
+ * refresh repaints every cell from scratch. Used to recover from anything
+ * which has scribbled on the terminal behind our back. */
+
+void dpy_forceredraw(void)
+{
+    clearok(curscr, TRUE);
+    refresh();
+}
+
 void dpy_setcursor(int x, int y, bool shown)
 {
     move(y, x);

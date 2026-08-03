@@ -48,7 +48,7 @@ INSTALLATION
 To run **Wordgrinder** on a *Kindle*, you need to **jailbreak your device**.
 See [Kindlemodding](https://www.kindlemodding.org) how to do it.
 
-You also need to **install [kindle-hid-passthrough](https://github.com/kbarni/kindle-hid-passthrough/)**
+You also need to **install [kindle-hid-passthrough](https://github.com/zampierilucas/kindle-hid-passthrough/)**
 to be able to connect Bluetooth keyboard. It is a must for a productive
 typing.
 
@@ -59,6 +59,7 @@ your Kindle.
 
 You can start it from the main screen using the provided booklet.
 
+**Note**: By default Wordgrinder doesn't display an on-screen keyboard - as it's designed to be used with an external keyboard. If you don't have one, *two-finger click* on the screen to bring up the menu: it allows to display the in-screen keyboard or quit wordgrinder.
 
 Building
 ========

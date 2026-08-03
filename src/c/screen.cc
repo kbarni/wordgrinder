@@ -48,6 +48,14 @@ static int sync_cb(lua_State* L)
     return 0;
 }
 
+static int forceredraw_cb(lua_State* L)
+{
+    dpy_forceredraw();
+    dpy_setcursor(cursorx, cursory, cursorshown);
+    dpy_sync();
+    return 0;
+}
+
 static int setbold_cb(lua_State* L)
 {
     dpy_setattr(-1, DPY_BOLD);
@@ -332,6 +340,7 @@ void screen_init(const char* argv[])
         {"deinitscreen",        deinitscreen_cb       },
         {"clearscreen",         clearscreen_cb        },
         {"sync",                sync_cb               },
+        {"forceredraw",         forceredraw_cb        },
         {"setbold",             setbold_cb            },
         {"setunderline",        setunderline_cb       },
         {"setreverse",          setreverse_cb         },

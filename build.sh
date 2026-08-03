@@ -9,4 +9,4 @@ TOOLCHAIN_PATH="${TOOLCHAIN_PATH%/}"
 ARCH=$(basename "$TOOLCHAIN_PATH")
 SYSROOT_PATH="${TOOLCHAIN_PATH}/${ARCH}/sysroot"
 
-make CFLAGS="-DKINDLE" BUILDTYPE=unix-ncurses-only CC=$TOOLCHAIN_PATH/bin/$ARCH-gcc CXX=$TOOLCHAIN_PATH/bin/$ARCH-g++ AR=$TOOLCHAIN_PATH/bin/$ARCH-ar CFLAGS="-g -Os -ffunction-sections -fdata-sections" LDFLAGS="-ffunction-sections -fdata-sections -static-libstdc++ -static-libgcc -ltinfow" PKG_CONFIG_LIBDIR=$SYSROOT_PATH/usr/lib/pkgconfig:$SYSROOT_PATH/usr/share/pkgconfig PKG_CONFIG_SYSROOT_DIR=$SYSROOT_PATH bin/wordgrinder
+make CFLAGS="-DKINDLE -g -Os -ffunction-sections -fdata-sections" BUILDTYPE=unix-ncurses-only CC=$TOOLCHAIN_PATH/bin/$ARCH-gcc CXX=$TOOLCHAIN_PATH/bin/$ARCH-g++ AR=$TOOLCHAIN_PATH/bin/$ARCH-ar LDFLAGS="-ffunction-sections -fdata-sections -static-libstdc++ -static-libgcc -ltinfow -lrt" PKG_CONFIG_LIBDIR=$SYSROOT_PATH/usr/lib/pkgconfig:$SYSROOT_PATH/usr/share/pkgconfig PKG_CONFIG_SYSROOT_DIR=$SYSROOT_PATH bin/wordgrinder
